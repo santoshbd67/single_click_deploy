@@ -21,7 +21,7 @@ pipeline {
     stages {
         stage('Git chekout ') {
             steps {
-                git branch: 'main', url: 'https://github.com/santoshbd67/Blue-Green-Deployment.git'
+                git branch: 'main', url: 'https://github.com/santoshbd67/single_click_deploy.git'
             }
         }
         
