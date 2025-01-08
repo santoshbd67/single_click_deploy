@@ -25,3 +25,50 @@ Integrate SonarQube with Jenkins by adding the server details and credentials un
 #### Kubernetes:
 Add Kubernetes credentials (Service Account token) to Jenkins.
 Install kubectl on the Jenkins server for executing Kubernetes commands.
+
+### 3. Jenkins Pipeline Design
+#### Pipeline Stages
+The Jenkins pipeline will include the following stages:
+
+#### Git Checkout:
+###### Clone the repository from GitHub.
+###### Ensure the pipeline always works with the latest code from the main branch.
+
+#### Code Compilation:
+###### Use Maven to compile the Java application code.
+
+#### Testing:
+###### Run unit tests using Maven with the mvn test command.
+###### Skip tests in build stages if explicitly required.
+
+#### Static Code Analysis (SonarQube):
+###### Analyze the code using SonarQube.
+###### Upload results and set a quality gate.
+
+#### Filesystem Vulnerability Scanning (Trivy):
+###### Scan the project files for known vulnerabilities.
+
+#### Build Application Artifact:
+###### Use Maven to create the JAR file using mvn package.
+
+#### Publish Artifact to Nexus:
+###### Push the artifact (JAR) to a Nexus repository for versioned storage.
+
+#### Docker Image Build:
+###### Build a Docker image of the application using the JAR artifact.
+
+#### Docker Image Vulnerability Scanning (Trivy):
+###### Scan the built image for security vulnerabilities.
+
+#### Push Docker Image:
+###### Push the Docker image to a container registry (e.g., Docker Hub).
+
+#### Kubernetes Deployment:
+###### Deploy MySQL to the Kubernetes cluster (if not already running).
+###### Deploy the application to either the Blue or Green environment based on the pipeline parameters.
+
+#### Switch Traffic:
+###### Update the Kubernetes service to route traffic to the selected environment.
+
+#### Post-Deployment Verification:
+###### Verify pod status and service availability.
