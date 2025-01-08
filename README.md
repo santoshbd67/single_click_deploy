@@ -72,3 +72,18 @@ The Jenkins pipeline will include the following stages:
 
 #### Post-Deployment Verification:
 ###### Verify pod status and service availability.
+
+### 4. Blue-Green Deployment Strategy
+#### Deployment Files
+###### app-deployment-blue.yml:
+###### Contains Kubernetes deployment for the Blue environment.
+###### Labels: version: blue.
+###### app-deployment-green.yml:
+###### Contains Kubernetes deployment for the Green environment.
+###### Labels: version: green.
+###### bankapp-service.yml:
+###### Kubernetes service manifest.
+######Default selector points to the Blue deployment initially.
+#### Traffic Switching
+###### Modify the service's selector to switch between version: blue and version: green.
+###### Use a parameterized Jenkins pipeline to control traffic switching.
