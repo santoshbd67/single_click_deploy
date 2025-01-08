@@ -2,8 +2,8 @@
 
 ### 1. Jenkins Environment Setup
 #### Jenkins Installation
-Install Jenkins on a server (local or cloud) using the appropriate installer for your OS.
-Recommended Java version: JDK 11 or above for Jenkins.
+###### Install Jenkins on a server (local or cloud) using the appropriate installer for your OS.
+##### Recommended Java version: JDK 11 or above for Jenkins.
 Use the following plugins:
 Maven Integration: For building Java applications.
 Pipeline: To define CI/CD pipelines.
