@@ -83,7 +83,7 @@ The Jenkins pipeline will include the following stages:
 ###### Labels: version: green.
 ###### bankapp-service.yml:
 ###### Kubernetes service manifest.
-######Default selector points to the Blue deployment initially.
+###### Default selector points to the Blue deployment initially.
 #### Traffic Switching
 ###### Modify the service's selector to switch between version: blue and version: green.
 ###### Use a parameterized Jenkins pipeline to control traffic switching.
